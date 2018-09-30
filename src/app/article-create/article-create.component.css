@@ -1,0 +1,55 @@
+.form-input {
+    width: 200px;
+}
+
+.form-text-area {
+    width: 200px;
+}
+
+.input-item {
+    margin-bottom: 16px;
+}
+
+.input-label {
+    font-size: 14px;
+    margin-left: 16px;
+    margin-bottom: 4px;
+}
+
+textarea, select, input, button {
+    outline: none;
+}
+
+input {
+    line-height: 32px;
+    padding-left: 16px;
+    padding-right: 8px;
+    border: none;
+    border-radius: 16px;
+    background-color: rgb(230, 230, 230);
+}
+
+textarea {
+    line-height: 32px;
+    padding-left: 16px;
+    padding-right: 8px;
+    border: none;
+    border-radius: 16px;
+    background-color: rgb(230, 230, 230);
+}
+
+button {
+    line-height: 32px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border: none;
+    border-radius: 16px;
+    color: #fff;
+    background-color: rgb(8, 122, 22);
+    cursor: pointer;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+}
+
+button:hover{
+    background-color: rgb(10, 150, 27);
+}

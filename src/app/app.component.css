@@ -1,0 +1,17 @@
+
+.container {
+    clear: both;
+    padding: 32px;
+}
+
+.container *:first-child {
+    float: left;
+    width: 50%;
+    background-color: rgba(255, 0, 0, 0);
+}
+
+.container *:last-child {
+    float: right;
+    width: 50%;
+    background-color: rgba(0, 255, 0, 0);
+}
