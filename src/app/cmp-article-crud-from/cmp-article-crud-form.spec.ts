@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ArticleCreateComponent } from './article-create.component';
+import { ArticleCrudFormComponent } from './cmp-article-crud-form';
 
-describe('ArticleCreateComponent', () => {
-  let component: ArticleCreateComponent;
-  let fixture: ComponentFixture<ArticleCreateComponent>;
+describe('CmpArticleCrudForm', () => {
+  let component: ArticleCrudFormComponent;
+  let fixture: ComponentFixture<ArticleCrudFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArticleCreateComponent ]
+      declarations: [ ArticleCrudFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ArticleCreateComponent);
+    fixture = TestBed.createComponent(ArticleCrudFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

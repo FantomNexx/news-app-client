@@ -1,0 +1,61 @@
+<div class="form-container" *ngIf="obs_state | async as obs" >
+
+    <div class="input-item">
+        <div class="input-label">Author {{obs.articles[obs.selected_article_id].author}}</div>
+        <div>
+            <input type="text" class="form-input" [(ngModel)]="author"/>
+        </div>
+    </div>
+
+
+    <div class="input-item">
+        <div class="input-label">Title</div>
+        <div>
+            <input type="text" class="form-input" [(ngModel)]="title"/>
+        </div>
+    </div>
+
+    <div class="input-item">
+        <div class="input-label">Content</div>
+        <div>
+            <textarea class="form-text-area"></textarea>
+        </div>
+    </div>
+
+    <button type="submit" (click)="Update()" class="btn">
+        Submit
+    </button>
+
+</div>
+
+<!--
+<div class="form-container">
+
+    <div class="input-item">
+        <div class="input-label">Author</div>
+        <div>
+            <input type="text" class="form-input" [(ngModel)]="author"/>
+        </div>
+    </div>
+
+
+    <div class="input-item">
+        <div class="input-label">Title</div>
+        <div>
+            <input type="text" class="form-input" [(ngModel)]="title"/>
+        </div>
+    </div>
+
+    <div class="input-item">
+        <div class="input-label">Content</div>
+        <div>
+            <textarea class="form-text-area" [(ngModel)]="content"></textarea>
+        </div>
+    </div>
+
+    <button type="submit" (click)="ArticleCreate()" class="btn">
+        Submit
+    </button>
+
+</div>
+-->

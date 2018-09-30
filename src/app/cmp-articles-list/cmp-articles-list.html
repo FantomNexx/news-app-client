@@ -1,0 +1,9 @@
+<div class="article_holder">
+
+    <app-article-listitem
+            (notify_selected_id)="onNotifyClick($event)"
+            *ngFor="let article of articles" [article]="article">
+    </app-article-listitem>
+
+</div>
+

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ArticleSingleViewComponent } from './article-single-view.component';
+import { ArticleListItemComponent } from './cmp-article-listitem';
 
-describe('ArticleSingleViewComponent', () => {
-  let component: ArticleSingleViewComponent;
-  let fixture: ComponentFixture<ArticleSingleViewComponent>;
+describe('CmpArticleListitem', () => {
+  let component: ArticleListItemComponent;
+  let fixture: ComponentFixture<ArticleListItemComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArticleSingleViewComponent ]
+      declarations: [ ArticleListItemComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ArticleSingleViewComponent);
+    fixture = TestBed.createComponent(ArticleListItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

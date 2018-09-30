@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+
+
+import {IArticleModel} from './ngrx/article-model';
 
 @Component({
     selector: 'app-root',
