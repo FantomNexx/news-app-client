@@ -23,18 +23,18 @@ export class ArticlesListComponent implements OnInit {
 
 
     constructor(private store: Store<IAppStateExtended>) {
-        this.articles = [];
 
         this.obs_state = this.store.select('articles_reducer');
-        this.obs_state.subscribe(
-            state => {
-                this.articles = state.articles;
-                // this.articles = [...state.articles];
-                // this.articles_new = Object.assign([], state.articles);
-                // this.articles = this.articles_new;
-                // angular.copy(state.articles, this.articles);
-                // this.articles = state.articles;
-            });
+        this.obs_state.subscribe(state => {
+            this.articles = state.articles.map(item => ({...item}));
+        });
+
+        // this.articles = state.articles;
+        // this.articles = [...state.articles];
+        // this.articles_new = Object.assign([], state.articles);
+        // this.articles = this.articles_new;
+        // angular.copy(state.articles, this.articles);
+        // this.articles = state.articles;
     }
 
     ngOnInit() {
