@@ -33,20 +33,24 @@ const newState = (state, new_data) => {
 };
 
 export function ArticlesReducer(
-    state: IAppStateExtended = default_state, action: Actions) {
+    state: IAppStateExtended = default_state, action: Actions): IAppStateExtended {
 
     switch (action.type) {
 
         case ArticleActions.EDIT:
-            const article: IArticleModel = action.payload;
-            state.articles[article.id] = article;
-            console.log('edited: ', article.id, '  ', state.articles[article.id]);
-            return newState(state, {articles: state.articles});
+            const articles: IArticleModel[] =
+                state.articles.map(item => {
+                    if (item.id !== action.payload.id) {
+                        return item;
+                    }
+
+                    item = action.payload;
+                    return item;
+                });
+            return newState(state, {articles});
 
         case ArticleActions.UPDATE_SELECTED_ARTICLE_ID:
-            state.selected_article_id = action.payload;
-            return state;
-            // return newState(state, {selected_article_id: state.selected_article_id});
+            return newState(state, {selected_article_id: action.payload});
 
         default:
             return state;

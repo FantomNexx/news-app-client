@@ -17,14 +17,14 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
         AppComponent,
         ArticleCrudFormComponent,
         ArticlesListComponent,
-        ArticleListItemComponent
+        ArticleListItemComponent,
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpClientModule,
         StoreModule.forRoot({
-            articles:
+            articles_reducer:
             ArticlesReducer,
         }),
         StoreDevtoolsModule.instrument({maxAge: 10})

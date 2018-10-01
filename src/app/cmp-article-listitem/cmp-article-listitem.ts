@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, DoCheck} from '@angular/core';
 
 @Component({
     selector: 'app-article-listitem',
@@ -6,7 +6,7 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
     styleUrls: ['./cmp-article-listitem.css']
 })
 
-export class ArticleListItemComponent implements OnInit {
+export class ArticleListItemComponent implements OnInit,  DoCheck {
 
     id: number;
     author: String;
@@ -32,6 +32,15 @@ export class ArticleListItemComponent implements OnInit {
         this.created = this.article.created;
     }
 
+
+    ngDoCheck() {
+        this.id = this.article.id;
+        this.author = this.article.author;
+        this.title = this.article.title;
+        this.content = this.article.content;
+        this.created = this.article.created;
+    }
+
     onClick() {
         this.notify_selected_id.emit(this.id);
     }
@@ -39,6 +48,13 @@ export class ArticleListItemComponent implements OnInit {
 
 
 /*
+
+
+        this.id = this.article.id;
+        this.author = this.article.author;
+        this.title = this.article.title;
+        this.content = this.article.content;
+        this.created = this.article.created;
 
 if (this.created != null) {
     const date_ms = Date.parse(this.created.toString());

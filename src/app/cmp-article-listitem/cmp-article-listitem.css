@@ -2,6 +2,7 @@
     display: flex;
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
+    background-color: #fff;
 }
 .article_container_main:hover {
     box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
@@ -11,7 +12,7 @@
 
 .article_status {
     width: 4px;
-    background-color: rgb(8, 122, 22);
+    background-color: rgba(8, 122, 22, 0.5);
 
     border-radius: 4px 0 0 4px;
 }
@@ -35,21 +36,22 @@
     justify-content: space-between;
     width: 100%;
     flex-wrap: wrap;
-    margin-bottom: 4px;
+    margin-top: 8px;
 }
 
 .article_author {
     font-size: 12px;
-    color: #333;
+    color: #bbb;
 }
 
 .article_created {
     font-size: 12px;
-    color: #333;
+    color: #bbb;
 }
 
 .article_content {
     font-size: 14px;
+    margin-top: 8px;
 }
 
 

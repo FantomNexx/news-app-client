@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {IArticleModel} from '../ngrx/article-model';
 import {Store} from '@ngrx/store';
@@ -13,26 +13,36 @@ import * as ArticleActions from '../ngrx/article-actions';
 
 export class ArticlesListComponent implements OnInit {
 
-    obs_state: Observable<any>;
-    state: IAppStateExtended;
+    obs_state: Observable<IAppStateExtended>;
 
     articles: IArticleModel[];
+
+    articles_new: IArticleModel[];
+
     selected_article_id: number;
 
+
     constructor(private store: Store<IAppStateExtended>) {
-        this.obs_state = this.store.select('articles');
+        this.articles = [];
+
+        this.obs_state = this.store.select('articles_reducer');
+        this.obs_state.subscribe(
+            state => {
+                this.articles = state.articles;
+                // this.articles = [...state.articles];
+                // this.articles_new = Object.assign([], state.articles);
+                // this.articles = this.articles_new;
+                // angular.copy(state.articles, this.articles);
+                // this.articles = state.articles;
+            });
     }
 
     ngOnInit() {
-        this.obs_state.subscribe(
-            obs_state => this.state = obs_state);
-
-        this.articles = this.state.articles;
     }
+
 
     onNotifyClick(selected_article_id: number) {
         this.selected_article_id = selected_article_id;
-        console.log('this.selected_article_id ', this.selected_article_id);
 
         this.store.dispatch(
             new ArticleActions.UpdateSelectedArticleId(

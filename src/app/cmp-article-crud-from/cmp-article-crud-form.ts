@@ -14,7 +14,7 @@ import {IAppStateExtended} from '../app.state';
 
 export class ArticleCrudFormComponent implements OnInit {
 
-    obs_state: Observable<any>;
+    obs_state: Observable<IAppStateExtended>;
     state: IAppStateExtended;
 
     local_article: IArticleModel;
@@ -25,7 +25,7 @@ export class ArticleCrudFormComponent implements OnInit {
 
 
     constructor(private store: Store<IAppStateExtended>) {
-        this.obs_state = this.store.select('articles');
+        this.obs_state = this.store.select('articles_reducer');
     }
 
 
