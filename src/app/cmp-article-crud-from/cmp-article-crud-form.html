@@ -1,9 +1,9 @@
-<div class="form-container" *ngIf="obs_state | async as obs" >
+<div class="form-container">
 
     <div class="input-item">
-        <div class="input-label">Author {{obs.articles[obs.selected_article_id].author}}</div>
+        <div class="input-label">Author</div>
         <div>
-            <input type="text" class="form-input" [(ngModel)]="author"/>
+            <input type="text" class="form-input" [(ngModel)]="local_article.author"/>
         </div>
     </div>
 
@@ -11,20 +11,52 @@
     <div class="input-item">
         <div class="input-label">Title</div>
         <div>
-            <input type="text" class="form-input" [(ngModel)]="title"/>
+            <input type="text" class="form-input" [(ngModel)]="local_article.title"/>
         </div>
     </div>
 
     <div class="input-item">
         <div class="input-label">Content</div>
         <div>
-            <textarea class="form-text-area"></textarea>
+            <textarea #id_textarea class="form-text-area"
+                      (change)="local_article.content = id_textarea.value">{{local_article.content}}</textarea>
+        </div>
+    </div>
+
+    <div class="input-item">
+        <div class="input-label">Content-Raw</div>
+        <div>
+            <textarea #id_textarea class="form-text-area"
+                      (change)="local_article.content_raw = id_textarea.value">{{local_article.content_raw}}</textarea>
         </div>
     </div>
 
     <button type="submit" (click)="Update()" class="btn">
         Submit
     </button>
+
+    <br>
+    <br>
+
+    <div id="html_test">
+
+        <div class="article_title">
+            {{local_article.title}}
+        </div>
+
+        <div class="article_container_info">
+            <span class="article_author">
+                {{local_article.author}}
+            </span>
+
+            <span class="article_created">
+                {{local_article.created}}
+            </span>
+        </div>
+
+
+        <div [innerHTML]="local_article.content_raw"></div>
+    </div>
 
 </div>
 

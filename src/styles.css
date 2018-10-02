@@ -50,7 +50,7 @@ table {
 /*-----------------*/
 
 *{
-    font-family: "Google sans", sans-serif;
+    font-family: "Google sans", sans-serif!important;
 }
 
 body{

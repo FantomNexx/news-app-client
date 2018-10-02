@@ -1,10 +1,12 @@
 import * as ArticleActions from './article-actions';
 import {IArticleModel} from './article-model';
 import {IAppStateExtended} from '../app.state';
+import {test_articles} from '../test-data/test-articles';
 
 
 export type Actions = ArticleActions.All;
 
+/*
 
 const article1: IArticleModel = {
     id: 0,
@@ -20,10 +22,10 @@ const article2: IArticleModel = {
     content: '‘Look at the shark!’',
     created: '2018/09/30'
 };
-
+*/
 
 const default_state: IAppStateExtended = {
-    articles: [article1, article2],
+    articles: test_articles,
     selected_article_id: 0
 };
 

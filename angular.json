@@ -25,7 +25,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/sanitize-html/dist/sanitize-html.min.js"
+            ]
           },
           "configurations": {
             "production": {

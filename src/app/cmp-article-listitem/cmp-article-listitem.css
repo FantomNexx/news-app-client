@@ -5,15 +5,14 @@
     background-color: #fff;
 }
 .article_container_main:hover {
-    box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    background-color: rgba(8, 122, 22, 0.02);
 }
 
 
 .article_status {
     width: 4px;
     background-color: rgba(8, 122, 22, 0.5);
-
     border-radius: 4px 0 0 4px;
 }
 
