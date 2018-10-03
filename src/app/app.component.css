@@ -1,17 +1,36 @@
-
-.container {
-    clear: both;
-    padding: 32px;
+.Z{
+    border: 2px solid rgba(255, 0, 0, 0.2);
+    display: flex;
+    padding: 10px;
 }
 
-.container *:first-child {
-    float: left;
-    width: 50%;
-    background-color: rgba(255, 0, 0, 0);
+.A {
+    border: 2px solid rgba(255, 0, 0, 0.2);
+    display: flex;
+    flex: 1;
+    /*flex-basis: 50%;*/
+    padding: 10px;
 }
 
-.container *:last-child {
-    float: right;
-    width: 50%;
-    background-color: rgba(0, 255, 0, 0);
+.B {
+    border: 2px solid rgba(255, 0, 0, 0.2);
+    display: flex;
+    flex: 1;
+    /*flex-basis: 50%;*/
+    padding: 10px;
+    flex-direction: column;
 }
+
+.AA{
+    border: 2px solid rgba(0, 255, 0, 0.1);
+}
+
+.BA{
+    border: 2px solid rgba(255, 0, 0, 0.2);
+    padding: 10px;
+}
+.BB{
+    border: 2px solid rgba(255, 0, 0, 0.2);
+    padding: 10px;
+}
+

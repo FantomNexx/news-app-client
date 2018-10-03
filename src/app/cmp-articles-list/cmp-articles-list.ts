@@ -17,8 +17,6 @@ export class ArticlesListComponent implements OnInit {
 
     articles: IArticleModel[];
 
-    articles_new: IArticleModel[];
-
     selected_article_id: number;
 
 

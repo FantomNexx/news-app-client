@@ -1,5 +1,19 @@
+<div class="Z">
 
-<div class="container">
-    <app-article-crud-form></app-article-crud-form>
-    <app-articles-list></app-articles-list>
+    <div class="A">
+        <app-articles-list></app-articles-list>
+    </div>
+
+    <div class="B">
+        <div class="BA">
+            <app-switcher [switch_data_input]="switch_data"></app-switcher>
+        </div>
+
+        <div class="BB">
+            <app-article-viewer *ngIf="app_mode === app_modes.VIEW"></app-article-viewer>
+            <app-article-crud-form *ngIf="app_mode === app_modes.EDIT"></app-article-crud-form>
+        </div>
+    </div>
+
 </div>
+

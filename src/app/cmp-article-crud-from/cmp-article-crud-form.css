@@ -54,36 +54,3 @@ button {
 button:hover {
     background-color: rgb(10, 150, 27);
 }
-
-#html_test /deep/ p {
-    margin-bottom: 16px;
-    line-height: 124%;
-}
-
-.article_container_info /deep/ {
-    width: 100%;
-    margin-top: 4px;
-    margin-bottom: 16px;
-}
-
-.article_title /deep/ {
-    font-weight: bold;
-    font-size: 24px;
-}
-
-.article_author /deep/ {
-    font-size: 12px;
-    color: #bbb;
-}
-
-.article_created /deep/ {
-    font-size: 12px;
-    color: #bbb;
-    margin-left: 16px;
-}
-
-/*
-app-article-crud-form:host{
-    border: 1px solid red;
-}
-*/
