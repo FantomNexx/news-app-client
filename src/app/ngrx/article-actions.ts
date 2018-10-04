@@ -1,11 +1,22 @@
 import {Action} from '@ngrx/store';
 import {IArticleModel} from './article-model';
 
+export const SYNC = '[IArticleModel] SYNC';
 export const EDIT = '[IArticleModel] EDIT';
 export const CREATE = '[IArticleModel] CREATE';
 export const DELETE = '[IArticleModel] DELETE';
 export const UPDATE_SELECTED_ARTICLE_ID = '[IArticleModel] UPDATE SELECTED ARTICLE ID';
 
+
+
+export class Sync implements Action {
+    readonly type = SYNC;
+    public payload: IArticleModel[];
+
+    constructor(payload: IArticleModel[]) {
+        this.payload = payload;
+    }
+}// Sync
 
 export class Edit implements Action {
     readonly type = EDIT;
@@ -14,7 +25,7 @@ export class Edit implements Action {
     constructor(payload: IArticleModel) {
         this.payload = payload;
     }
-}
+}// Edit
 
 export class Create implements Action {
     readonly type = CREATE;
@@ -23,7 +34,7 @@ export class Create implements Action {
     constructor(payload: IArticleModel) {
         this.payload = payload;
     }
-}
+}// Create
 
 export class Delete implements Action {
     readonly type = DELETE;
@@ -32,20 +43,21 @@ export class Delete implements Action {
     constructor(payload: IArticleModel) {
         this.payload = payload;
     }
-}
+}// Delete
 
 export class UpdateSelectedArticleId implements Action {
     readonly type = UPDATE_SELECTED_ARTICLE_ID;
-    public payload: number;
+    public payload: string;
 
-    constructor(payload: number) {
+    constructor(payload: string) {
         this.payload = payload;
     }
-}
+}// UpdateSelectedArticleId
 
 
 export type All
     = Edit
+    | Sync
     | Create
     | Delete
     | UpdateSelectedArticleId;

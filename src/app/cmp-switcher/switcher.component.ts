@@ -1,4 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {IAppStateExtended} from '../app.state';
+import {APP_MODE, APP_MODE_PAGES} from '../ngrx/app-model';
 
 
 export interface ISwitchItemData {
@@ -48,21 +51,53 @@ export class CmpSwitchData {
 
 export class SwitcherComponent implements OnInit {
 
+    app_mode: APP_MODE;
+
     @Input() switch_data_input;
 
-    constructor() {
-    }
+    constructor(private store: Store<IAppStateExtended>) {
+        this.app_mode = APP_MODE.UNKNOWN;
+
+        this.store.select(
+            value => value['app_reducer'].app_mode).subscribe(
+            app_mode => this.setAppState(app_mode));
+    }// constructor
 
     ngOnInit() {
+        this.updateSwitcherState();
+    }// ngOnInit
+
+
+    updateSwitcherState() {
+
+        if (!this.switch_data_input) {
+            return;
+        }
+
+        const curren_url = APP_MODE_PAGES[this.app_mode];
+
+        for (const item of this.switch_data_input.items) {
+            item.selected = false;
+            if (item.url.localeCompare(curren_url) === 0) {
+                item.selected = true;
+            }// if
+        }// for
     }
 
-    onItemClick(_item: CSwitchItemData) {
 
-        for (let item of this.switch_data_input.items) {
+    setAppState(app_mode) {
+        this.app_mode = app_mode;
+        this.updateSwitcherState();
+    }// setAppState
+
+    onItemClick(_item: CSwitchItemData) {
+        return;
+
+        for (const item of this.switch_data_input.items) {
             item.selected = false;
         }
 
-        for (let item of this.switch_data_input.items) {
+        for (const item of this.switch_data_input.items) {
             if (_item.text.localeCompare(item.text) === 0) {
                 item.selected = true;
             }

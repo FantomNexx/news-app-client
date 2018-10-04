@@ -1,5 +1,5 @@
 
-#html_test /deep/ p {
+.container /deep/ p {
     margin-bottom: 16px;
     line-height: 124%;
 }

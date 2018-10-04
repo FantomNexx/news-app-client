@@ -1,20 +1,16 @@
 <div class="article_container_main" (click)="onClick()">
 
-
     <div class="article_status"></div>
-
 
     <!--
     <div class="article_image"></div>
     -->
 
-
     <div class="article_container_right">
 
         <div class="article_title">
-            {{title}}
+            {{article.title}}
         </div>
-
 
         <!--
         <div class="article_content">
@@ -25,11 +21,11 @@
         <div class="article_container_info">
 
             <div class="article_author">
-                {{author}}
+                {{article.author}}
             </div>
 
             <div class="article_created">
-                {{created}}
+                {{created_date_formatted}}
             </div>
         </div>
 

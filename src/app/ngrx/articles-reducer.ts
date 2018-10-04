@@ -1,32 +1,14 @@
 import * as ArticleActions from './article-actions';
 import {IArticleModel} from './article-model';
 import {IAppStateExtended} from '../app.state';
-import {test_articles} from '../test-data/test-articles';
 
 
 export type Actions = ArticleActions.All;
 
-/*
-
-const article1: IArticleModel = {
-    id: 0,
-    author: 'Bryan Bishop',
-    title: 'Everything coming to Netflix, Amazon Prime, and HBO Now in October',
-    content: 'Netflix bets on horror with Apostle, Hill House, and Chilling Adventures of Sabrina',
-    created: '2018/08/29'
-};
-const article2: IArticleModel = {
-    id: 1,
-    author: 'Rachel Becker',
-    title: 'Watch these scientists discover a new fish, but miss the giant shark swimming by',
-    content: '‘Look at the shark!’',
-    created: '2018/09/30'
-};
-*/
 
 const default_state: IAppStateExtended = {
-    articles: test_articles,
-    selected_article_id: 0
+    articles: [],
+    selected_article_id: ''
 };
 
 
@@ -34,27 +16,51 @@ const newState = (state, new_data) => {
     return Object.assign({}, state, new_data);
 };
 
+
 export function ArticlesReducer(
     state: IAppStateExtended = default_state, action: Actions): IAppStateExtended {
 
     switch (action.type) {
-
         case ArticleActions.EDIT:
-            const articles: IArticleModel[] =
-                state.articles.map(item => {
-                    if (item.id !== action.payload.id) {
-                        return item;
-                    }
+            return onEdit(state, action);
 
-                    item = action.payload;
-                    return item;
-                });
-            return newState(state, {articles});
+        case ArticleActions.SYNC:
+            return onSync(state, action);
 
         case ArticleActions.UPDATE_SELECTED_ARTICLE_ID:
-            return newState(state, {selected_article_id: action.payload});
+            return onUpdateSelectedArticle(state, action);
 
         default:
             return state;
-    }
-}
+    }// switch
+}// ArticlesReducer
+
+
+function onEdit(sate: IAppStateExtended, action: Actions): IAppStateExtended {
+    const articles: IArticleModel[] =
+        sate.articles.map(article => {
+
+            const article_new: IArticleModel = <IArticleModel>action.payload;
+
+            if (article._id !== article_new._id) {
+                return article;
+            }// if
+
+            article = article_new;
+            return article;
+        });
+
+    return newState(sate, {articles});
+}// onEdit
+
+
+function onUpdateSelectedArticle(sate: IAppStateExtended, action: Actions): IAppStateExtended {
+    return newState(sate, {selected_article_id: action.payload});
+}// onUpdateSelectedArticles
+
+function onSync(sate: IAppStateExtended, action: Actions): IAppStateExtended {
+    const new_articles: IArticleModel[] = <IArticleModel[]>action.payload;
+    return newState(sate, {articles: new_articles});
+}// IAppStateExtended
+
+

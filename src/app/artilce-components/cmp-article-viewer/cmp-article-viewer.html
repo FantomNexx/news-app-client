@@ -1,0 +1,14 @@
+
+<div class="container">
+
+    <div class="article_title">
+        {{article.title}}
+    </div>
+
+    <div class="article_container_info">
+        <span class="article_author">{{article.author}}</span>
+        <span class="article_created">{{created_date_formatted}}</span>
+    </div>
+
+    <div [innerHTML]="article.content"></div>
+</div>

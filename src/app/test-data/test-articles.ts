@@ -1,7 +1,7 @@
 import {IArticleModel} from '../ngrx/article-model';
 
 const article1: IArticleModel = {
-    id: 0,
+    _id: '0',
     author: 'Bryan Bishop',
     title: 'Google Pixel security update',
     created: 'Oct 1, 2018, 3:27pm EDT',
@@ -23,7 +23,7 @@ const article1: IArticleModel = {
 };
 
 const article2: IArticleModel = {
-    id: 1,
+    _id: '2',
     author: 'Nick Statt',
     title: 'Facebook names longtime executive Adam Mosseri as new head of Instagram',
     created: 'Oct 1, 2018, 3:27pm EDT',
@@ -46,7 +46,7 @@ const article2: IArticleModel = {
 
 
 const article3: IArticleModel = {
-    id: 2,
+    _id: '2',
     author: 'Tom Warren',
     title: 'Google’s October security update fixes the Pixel and Pixel XL’s fast-charging problems',
     content: '',

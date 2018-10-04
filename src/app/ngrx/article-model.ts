@@ -1,5 +1,5 @@
 export interface IArticleModel {
-    id?: number;
+    _id?: string;
     author: string;
     title: string;
     created: string;
@@ -8,7 +8,7 @@ export interface IArticleModel {
 }
 
 export class ArticleModel implements IArticleModel {
-    id: number;
+    _id: string;
     title: string;
     author: string;
     created: string;
@@ -16,7 +16,7 @@ export class ArticleModel implements IArticleModel {
     content_raw: string;
 
     constructor() {
-        this.id = -1;
+        this._id = '';
         this.author = '';
         this.title = '';
         this.created = '';

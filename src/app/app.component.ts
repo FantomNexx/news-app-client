@@ -1,76 +1,37 @@
 import {Component} from '@angular/core';
-import {CmpSwitchData, CSwitchItemData} from './switcher/switcher.component';
+import {CmpSwitchData, CSwitchItemData} from './cmp-switcher/switcher.component';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import {Syncer} from './utils/syncer';
+import {HttpClient} from '@angular/common/http';
+import {Store} from '@ngrx/store';
+import {IAppStateExtended} from './app.state';
+import {RouteWatcher} from './utils/route-watcher';
 
-
-export enum APP_MODES {
-    VIEW = 1,
-    EDIT,
-    HOME,
-    UNKNOWN
-}
-
-export class CAPPMDOES {
-    public appModes = APP_MODES;
-}
-
-const PAGES = {
-    HOME: '/',
-    VIEW: '/view',
-    EDIT: '/edit',
-};
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-    public app_modes = APP_MODES;
 
     switch_data: CmpSwitchData;
-    app_mode: APP_MODES;
 
-    constructor(private route: ActivatedRoute, private router: Router) {
+    syncer: Syncer;
+    rotuer_watcher: RouteWatcher;
 
-        this.app_mode = APP_MODES.HOME;
+    constructor(
+        private activated_route: ActivatedRoute,
+        private router: Router,
+        private http: HttpClient,
+        private store: Store<IAppStateExtended>) {
 
-        router.events.subscribe((event) => {
-            this.onRouteChange(event);
-        });
-
-        this.route.paramMap.subscribe(
-            params => {
-                this.onRouteParams(params);
-            }
-        );
+        this.syncer = new Syncer(http, store);
+        this.rotuer_watcher = new RouteWatcher(activated_route, router, store);
 
         this.initSwitchData();
-    }
-
-    onRouteParams(params) {
-        // console.log(this.route.url);
-        // console.log(params.get('param_name'));
-    }
-
-    onRouteChange(event) {
-        if (event instanceof NavigationEnd) {
-            console.log('revents', event);
-
-            switch (event.urlAfterRedirects) {
-                case PAGES.HOME:
-                    this.app_mode = APP_MODES.HOME;
-                    break;
-                case PAGES.VIEW:
-                    this.app_mode = APP_MODES.VIEW;
-                    break;
-                case PAGES.EDIT:
-                    this.app_mode = APP_MODES.EDIT;
-                    break;
-            }
-            console.log(this.app_mode);
-        }
-    }// onRouteChange
+    }// constructor
 
     initSwitchData() {
         this.switch_data = new CmpSwitchData();
@@ -79,14 +40,18 @@ export class AppComponent {
 
         this.switch_data.items.push(
             new CSwitchItemData(
-                'View', '/view', true
+                'Home', '/', false
+            ));
+
+        this.switch_data.items.push(
+            new CSwitchItemData(
+                'View', '/view', false
             ));
         this.switch_data.items.push(
             new CSwitchItemData(
                 'Edit', '/edit', false
             ));
     }// initSwitchData
-
 
 }// AppComponent
 

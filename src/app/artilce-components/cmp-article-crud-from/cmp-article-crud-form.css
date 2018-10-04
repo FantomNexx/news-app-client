@@ -1,9 +1,9 @@
 .form-input {
-    width: 480px;
+    width: 300px;
 }
 
 .form-text-area {
-    width: 480px;
+    width: 300px;
 }
 
 .input-item {
@@ -49,6 +49,10 @@ button {
     background-color: rgb(8, 122, 22);
     cursor: pointer;
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+}
+
+button:focus {
+    outline: 0;
 }
 
 button:hover {

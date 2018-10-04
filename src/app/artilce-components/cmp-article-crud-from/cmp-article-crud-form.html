@@ -3,7 +3,7 @@
     <div class="input-item">
         <div class="input-label">Author</div>
         <div>
-            <input type="text" class="form-input" [(ngModel)]="local_article.author"/>
+            <input type="text" class="form-input" [(ngModel)]="article.author"/>
         </div>
     </div>
 
@@ -11,7 +11,7 @@
     <div class="input-item">
         <div class="input-label">Title</div>
         <div>
-            <input type="text" class="form-input" [(ngModel)]="local_article.title"/>
+            <input type="text" class="form-input" [(ngModel)]="article.title"/>
         </div>
     </div>
 
@@ -19,7 +19,7 @@
         <div class="input-label">Content</div>
         <div>
             <textarea #id_textarea class="form-text-area"
-                      (change)="local_article.content = id_textarea.value">{{local_article.content}}</textarea>
+                      (change)="article.content = id_textarea.value">{{article.content}}</textarea>
         </div>
     </div>
 
@@ -27,7 +27,7 @@
         <div class="input-label">Content-Raw</div>
         <div>
             <textarea #id_textarea class="form-text-area"
-                      (change)="local_article.content_raw = id_textarea.value">{{local_article.content_raw}}</textarea>
+                      (change)="article.content_raw = id_textarea.value">{{article.content_raw}}</textarea>
         </div>
     </div>
 
