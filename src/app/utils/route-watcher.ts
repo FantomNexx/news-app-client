@@ -3,7 +3,11 @@ import {Store} from '@ngrx/store';
 import {IAppStateExtended} from '../app.state';
 import {APP_MODE, APP_PAGES} from '../ngrx/app-model';
 import * as AppActions from '../ngrx/app-actions';
+import {Injectable} from '@angular/core';
 
+@Injectable({
+    providedIn: 'root'
+})
 
 export class RouteWatcher {
     public APP_MODE = APP_MODE;

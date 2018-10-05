@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter, OnChanges} from '@angular/core';
-import {formatDate} from '../../../utils/utils';
+import {formatDate} from '../../utils/utils';
 
 @Component({
     selector: 'app-article-listitem',

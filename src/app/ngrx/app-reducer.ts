@@ -27,7 +27,6 @@ const newState = (state, new_data) => {
 
 
 function onUpdate(state: IAppModel, action: AppActions) {
-    console.log(action.app_mode);
     return newState(state, {app_mode: action.app_mode});
 }// onUpdate
 

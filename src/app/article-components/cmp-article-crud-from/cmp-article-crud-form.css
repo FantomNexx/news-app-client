@@ -58,3 +58,11 @@ button:focus {
 button:hover {
     background-color: rgb(10, 150, 27);
 }
+
+
+.container_buttons > *{
+    margin-right: 8px;
+}
+.container_buttons > *:last-child{
+    margin-right: 0px;
+}

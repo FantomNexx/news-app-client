@@ -6,12 +6,12 @@ import {IAppStateExtended} from '../../app.state';
 import * as ArticleActions from '../../ngrx/article-actions';
 
 @Component({
-    selector: 'app-articles-list',
-    templateUrl: './cmp-articles-list.html',
-    styleUrls: ['./cmp-articles-list.css']
+    selector: 'app-article-list',
+    templateUrl: './cmp-article-list.html',
+    styleUrls: ['./cmp-article-list.css']
 })
 
-export class ArticlesListComponent implements OnInit {
+export class ArticleListComponent implements OnInit {
 
     obs_state: Observable<IAppStateExtended>;
     articles: IArticleModel[];
@@ -31,4 +31,4 @@ export class ArticlesListComponent implements OnInit {
             new ArticleActions.UpdateSelectedArticleId(selected_article_id));
     }// onNotifyClick
 
-}// ArticlesListComponent
+}// ArticleListComponent

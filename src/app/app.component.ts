@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CmpSwitchData, CSwitchItemData} from './cmp-switcher/switcher.component';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {Syncer} from './utils/syncer';
@@ -14,24 +14,25 @@ import {RouteWatcher} from './utils/route-watcher';
     styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 
     switch_data: CmpSwitchData;
 
-    syncer: Syncer;
-    rotuer_watcher: RouteWatcher;
+    // syncer: Syncer;
+    route_watcher: RouteWatcher;
 
     constructor(
-        private activated_route: ActivatedRoute,
-        private router: Router,
-        private http: HttpClient,
-        private store: Store<IAppStateExtended>) {
+        private _route_watcher: RouteWatcher,
+        private syncer: Syncer) {
 
-        this.syncer = new Syncer(http, store);
-        this.rotuer_watcher = new RouteWatcher(activated_route, router, store);
-
-        this.initSwitchData();
+        this.route_watcher = _route_watcher;
     }// constructor
+
+    ngOnInit() {
+        this.syncer.getArticles();
+        this.initSwitchData();
+    }// ngOnInit
+
 
     initSwitchData() {
         this.switch_data = new CmpSwitchData();

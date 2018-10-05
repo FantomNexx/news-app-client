@@ -7,13 +7,12 @@ import {RouterModule} from '@angular/router';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 import {AppComponent} from './app.component';
-import {ArticleCrudFormComponent} from './artilce-components/cmp-article-crud-from/cmp-article-crud-form';
-import {ArticlesListComponent} from './artilce-components/cmp-articles-list/cmp-articles-list';
-import {ArticleListItemComponent} from './artilce-components/cmp-articles-list/cmp-article-listitem/cmp-article-listitem';
+import {ArticleCrudFormComponent} from './article-components/cmp-article-crud-from/cmp-article-crud-form';
+import {ArticleListComponent} from './article-components/cmp-article-list/cmp-article-list';
+import {ArticleListItemComponent} from './article-components/cmp-article-listitem/cmp-article-listitem';
 import {SwitcherComponent} from './cmp-switcher/switcher.component';
-import {ArticleViewerComponent} from './artilce-components/cmp-article-viewer/cmp-article-viewer';
+import {ArticleViewerComponent} from './article-components/cmp-article-viewer/cmp-article-viewer';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
-import {ArticlesSyncerComponent} from './artilce-components/cmp-articles-syncer/articles-syncer.component';
 
 import {ArticlesReducer} from './ngrx/articles-reducer';
 import {AppReducer} from './ngrx/app-reducer';
@@ -22,8 +21,7 @@ import {AppReducer} from './ngrx/app-reducer';
 @NgModule({
     declarations: [
         AppComponent,
-        ArticlesListComponent,
-        ArticlesSyncerComponent,
+        ArticleListComponent,
         ArticleListItemComponent,
         ArticleViewerComponent,
         ArticleCrudFormComponent,

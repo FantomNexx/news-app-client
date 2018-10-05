@@ -2,9 +2,9 @@ import {Action} from '@ngrx/store';
 import {IArticleModel} from './article-model';
 
 export const SYNC = '[IArticleModel] SYNC';
-export const EDIT = '[IArticleModel] EDIT';
+export const EDIT = '[IArticleModel] UPDATE';
 export const CREATE = '[IArticleModel] CREATE';
-export const DELETE = '[IArticleModel] DELETE';
+export const DELETE = '[IArticleModel] REMOVE';
 export const UPDATE_SELECTED_ARTICLE_ID = '[IArticleModel] UPDATE SELECTED ARTICLE ID';
 
 
@@ -38,9 +38,9 @@ export class Create implements Action {
 
 export class Delete implements Action {
     readonly type = DELETE;
-    public payload: IArticleModel;
+    public payload: string;
 
-    constructor(payload: IArticleModel) {
+    constructor(payload: string) {
         this.payload = payload;
     }
 }// Delete

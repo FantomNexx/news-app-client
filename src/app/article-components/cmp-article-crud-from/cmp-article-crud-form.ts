@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ArticleModel, IArticleModel} from '../../ngrx/article-model';
 import {Store} from '@ngrx/store';
-import * as ArticleActions from '../../ngrx/article-actions';
 import {IAppStateExtended} from '../../app.state';
+import {ARTICLE_EVENTS, EventManagerService} from '../../utils/event_manager';
 
 
 declare let sanitizeHtml: any;
@@ -19,9 +19,9 @@ export class ArticleCrudFormComponent implements OnInit {
     article: IArticleModel;
     selected_article_id: string;
 
-
     constructor(
-        private store: Store<IAppStateExtended>) {
+        private store: Store<IAppStateExtended>,
+        private event_manager: EventManagerService) {
 
         this.article = new ArticleModel();
 
@@ -34,7 +34,7 @@ export class ArticleCrudFormComponent implements OnInit {
     updateArticleId(selected_article_id: string) {
         if (selected_article_id === '') {
             return;
-        }
+        }// if
 
         this.selected_article_id = selected_article_id;
 
@@ -61,29 +61,37 @@ export class ArticleCrudFormComponent implements OnInit {
         this.clearArticleContent();
     }// updateArticle
 
+
     clearArticleContent() {
         if (!this.article.content_raw) {
             return;
         }// if
         this.article.content = sanitizeHtml(this.article.content_raw);
-    }
-
-
-    Update() {
-        this.edit();
-    }
+    }// clearArticleContent
 
 
     edit() {
-        this.store.dispatch(new ArticleActions.Edit(this.article));
+        if (this.article._id === '') {
+            return;
+        }
+        this.event_manager.emit(ARTICLE_EVENTS.UPDATE, {article: this.article});
+        // this.store.dispatch(new ArticleActions.Edit(this.article));
     }
 
     create() {
-        this.store.dispatch(new ArticleActions.Create(this.article));
+        if (this.article._id === '') {
+            return;
+        }
+        this.event_manager.emit(ARTICLE_EVENTS.CREATE, {article: this.article});
+        // this.store.dispatch(new ArticleActions.Create(this.article));
     }
 
     delete() {
-        this.store.dispatch(new ArticleActions.Delete(this.article));
+        if (this.article._id === '') {
+            return;
+        }// if
+        this.event_manager.emit(ARTICLE_EVENTS.REMOVE, {selected_article_id: this.selected_article_id});
+        // this.store.dispatch(new ArticleActions.Delete(this.article));
     }
 
 }// ArticleCrudFormComponent

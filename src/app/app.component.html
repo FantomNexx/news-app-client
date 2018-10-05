@@ -1,7 +1,7 @@
 <div class="Z">
 
     <div class="A">
-        <app-articles-list></app-articles-list>
+        <app-article-list></app-article-list>
     </div>
 
     <div class="B">
@@ -11,14 +11,14 @@
 
         <div class="BB">
             <!--
-            <app-cmp-articles-syncer *ngIf="app_mode === app_modes.HOME"></app-cmp-articles-syncer>
+            <app-article-syncer *ngIf="app_mode === app_modes.HOME"></app-article-syncer>
             -->
             <app-article-viewer
-                    *ngIf="rotuer_watcher.app_mode === rotuer_watcher.APP_MODE.VIEW">
+                    *ngIf="route_watcher.app_mode === route_watcher.APP_MODE.VIEW">
             </app-article-viewer>
 
             <app-article-crud-form
-                    *ngIf="rotuer_watcher.app_mode === rotuer_watcher.APP_MODE.EDIT">
+                    *ngIf="route_watcher.app_mode === route_watcher.APP_MODE.EDIT">
             </app-article-crud-form>
         </div>
     </div>
