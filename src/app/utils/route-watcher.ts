@@ -50,6 +50,9 @@ export class RouteWatcher {
                 case APP_PAGES.EDIT:
                     this.app_mode = APP_MODE.EDIT;
                     break;
+                case APP_PAGES.LAYOUT:
+                    this.app_mode = APP_MODE.LAYOUT;
+                    break;
             }// switch
 
             this.store.dispatch(new AppActions.Update(this.app_mode));

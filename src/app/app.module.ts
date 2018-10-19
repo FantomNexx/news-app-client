@@ -16,6 +16,8 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 import {ArticlesReducer} from './ngrx/articles-reducer';
 import {AppReducer} from './ngrx/app-reducer';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { CmpArticleSourcesListComponent } from './article-components/cmp-article-sources-list/cmp-article-sources-list';
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import {AppReducer} from './ngrx/app-reducer';
         ArticleCrudFormComponent,
         PageNotFoundComponent,
         SwitcherComponent,
+        MainLayoutComponent,
+        CmpArticleSourcesListComponent,
     ],
     imports: [
         BrowserModule,
@@ -37,9 +41,10 @@ import {AppReducer} from './ngrx/app-reducer';
             app_reducer: AppReducer,
         }),
         RouterModule.forRoot([
-            {path: '', component: AppComponent},
+            {path: 'layout', component: MainLayoutComponent},
             {path: 'edit', component: AppComponent},
             {path: 'view', component: AppComponent},
+            {path: '', component: AppComponent},
             {path: '**', component: PageNotFoundComponent},
         ]),
         StoreDevtoolsModule.instrument({maxAge: 10})

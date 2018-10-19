@@ -1,4 +1,8 @@
-<div class="Z">
+<router-outlet></router-outlet>
+<!-- Leeve only above tag,  -->
+
+<div class="Z"
+     *ngIf="route_watcher.app_mode !== route_watcher.APP_MODE.LAYOUT">
 
     <div class="A">
         <app-article-list></app-article-list>
@@ -24,4 +28,9 @@
     </div>
 
 </div>
+
+
+<app-main-layout
+        *ngIf="route_watcher.app_mode === route_watcher.APP_MODE.LAYOUT">
+</app-main-layout>
 

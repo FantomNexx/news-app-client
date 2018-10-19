@@ -107,7 +107,7 @@ export class Syncer implements OnDestroy {
     }// onArticlesGetError
 
     public getArticles() {
-        const url = 'http://localhost:3000/api/articles';
+        const url = 'http://localhost:3000/api_article/articles';
         const params = {};
         this.doGetRequest(
             url,

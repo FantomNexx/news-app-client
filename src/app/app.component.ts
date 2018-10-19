@@ -17,8 +17,6 @@ import {RouteWatcher} from './utils/route-watcher';
 export class AppComponent implements OnInit {
 
     switch_data: CmpSwitchData;
-
-    // syncer: Syncer;
     route_watcher: RouteWatcher;
 
     constructor(
@@ -29,7 +27,7 @@ export class AppComponent implements OnInit {
     }// constructor
 
     ngOnInit() {
-        this.syncer.getArticles();
+        // this.syncer.getArticles();
         this.initSwitchData();
     }// ngOnInit
 
