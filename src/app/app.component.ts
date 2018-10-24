@@ -23,15 +23,16 @@ export class AppComponent implements OnInit {
         private _route_watcher: RouteWatcher,
         private syncer: Syncer) {
 
-        this.route_watcher = _route_watcher;
+        // this.route_watcher = _route_watcher;
     }// constructor
 
     ngOnInit() {
         // this.syncer.getArticles();
-        this.initSwitchData();
+        // this.initSwitchData();
     }// ngOnInit
 
 
+    /*
     initSwitchData() {
         this.switch_data = new CmpSwitchData();
 
@@ -51,6 +52,7 @@ export class AppComponent implements OnInit {
                 'Edit', '/edit', false
             ));
     }// initSwitchData
+    */
 
 }// AppComponent
 

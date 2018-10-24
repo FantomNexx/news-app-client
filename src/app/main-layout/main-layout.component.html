@@ -1,8 +1,21 @@
 <div class="container_main">
-    <div class="cntr container_sources"></div>
-    <div class="cntr container_list"></div>
-    <div class="cntr container_article"></div>
+    <div class="cntr container_sources">
+        <app-article-sources-list></app-article-sources-list>
+    </div>
+
+    <div class="cntr container_list">
+        <app-article-list></app-article-list>
+    </div>
+
+    <div class="cntr container_article">
+        <app-article-viewer
+                *ngIf="route_watcher.app_mode === route_watcher.APP_MODE.VIEW">
+        </app-article-viewer>
+    </div>
+
 </div>
 
+<!--
 <img src="http://gdurl.com/puYj" width="48" height="48"/>
 <img src="http://gdurl.com/l1Eq" width="48" height="48"/>
+-->

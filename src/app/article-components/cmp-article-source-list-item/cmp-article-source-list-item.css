@@ -1,0 +1,19 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 8px 0 8px 0;
+}
+
+:host:hover{
+    background-color: #bbbbbb;
+}
+
+.img-source {
+    display: block;
+    margin: 0 auto;
+}
+
+.label {
+    text-align: center;
+}

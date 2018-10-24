@@ -1,0 +1,14 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+:host > * {
+    margin-top: 8px;
+}
+
+:host > *:first-child {
+    margin-top: 0;
+}
