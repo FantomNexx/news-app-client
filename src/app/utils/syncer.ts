@@ -2,13 +2,14 @@ import {HttpClient} from '@angular/common/http';
 import {Store} from '@ngrx/store';
 import {IAppStateExtended} from '../app.state';
 import * as ArticleActions from '../ngrx/article-actions';
-import {ARTICLE_EVENTS, EventManagerService} from './event_manager';
+import {EVENTS_ARTICLE, EventManagerService} from './event_manager';
 import {Injectable, OnDestroy} from '@angular/core';
 import {IArticleModel} from '../ngrx/article-model';
 
 @Injectable({
     providedIn: 'root'
 })
+
 
 export class Syncer implements OnDestroy {
 
@@ -18,23 +19,23 @@ export class Syncer implements OnDestroy {
         private event_manager: EventManagerService) {
 
         event_manager.subscribe(
-            ARTICLE_EVENTS.CREATE, this,
+            EVENTS_ARTICLE.CREATE, this,
             (args: any) => this.createArticle(args[0].article));
 
         event_manager.subscribe(
-            ARTICLE_EVENTS.UPDATE, this,
+            EVENTS_ARTICLE.UPDATE, this,
             (args: any) => this.updateArticle(args[0].article));
 
         event_manager.subscribe(
-            ARTICLE_EVENTS.REMOVE, this,
+            EVENTS_ARTICLE.REMOVE, this,
             (args: any) => this.removeArticle(args[0].selected_article_id));
 
     }// constructor
 
     ngOnDestroy(): void {
-        this.event_manager.unsubscribe(ARTICLE_EVENTS.CREATE, this);
-        this.event_manager.unsubscribe(ARTICLE_EVENTS.UPDATE, this);
-        this.event_manager.unsubscribe(ARTICLE_EVENTS.REMOVE, this);
+        this.event_manager.unsubscribe(EVENTS_ARTICLE.CREATE, this);
+        this.event_manager.unsubscribe(EVENTS_ARTICLE.UPDATE, this);
+        this.event_manager.unsubscribe(EVENTS_ARTICLE.REMOVE, this);
     }// ngOnDestroy
 
 
@@ -114,7 +115,7 @@ export class Syncer implements OnDestroy {
             params,
             (articles) => this.onArticlesGetSuccess(articles),
             (err) => this.onArticlesGetError(err)
-        );
+        ); // doGetRequest
     }// getArticles
 
 

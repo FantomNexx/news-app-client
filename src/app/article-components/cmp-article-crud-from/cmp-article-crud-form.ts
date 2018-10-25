@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ArticleModel, IArticleModel} from '../../ngrx/article-model';
 import {Store} from '@ngrx/store';
 import {IAppStateExtended} from '../../app.state';
-import {ARTICLE_EVENTS, EventManagerService} from '../../utils/event_manager';
+import {EVENTS_ARTICLE, EventManagerService} from '../../utils/event_manager';
 
 
 declare let sanitizeHtml: any;
@@ -74,7 +74,7 @@ export class ArticleCrudFormComponent implements OnInit {
         if (this.article._id === '') {
             return;
         }
-        this.event_manager.emit(ARTICLE_EVENTS.UPDATE, {article: this.article});
+        this.event_manager.emit(EVENTS_ARTICLE.UPDATE, {article: this.article});
         // this.store.dispatch(new ArticleActions.Edit(this.article));
     }
 
@@ -82,7 +82,7 @@ export class ArticleCrudFormComponent implements OnInit {
         if (this.article._id === '') {
             return;
         }
-        this.event_manager.emit(ARTICLE_EVENTS.CREATE, {article: this.article});
+        this.event_manager.emit(EVENTS_ARTICLE.CREATE, {article: this.article});
         // this.store.dispatch(new ArticleActions.Create(this.article));
     }
 
@@ -90,7 +90,7 @@ export class ArticleCrudFormComponent implements OnInit {
         if (this.article._id === '') {
             return;
         }// if
-        this.event_manager.emit(ARTICLE_EVENTS.REMOVE, {selected_article_id: this.selected_article_id});
+        this.event_manager.emit(EVENTS_ARTICLE.REMOVE, {selected_article_id: this.selected_article_id});
         // this.store.dispatch(new ArticleActions.Delete(this.article));
     }
 

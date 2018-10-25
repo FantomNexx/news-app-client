@@ -29,6 +29,5 @@ export class ArticleListItemComponent implements OnInit, OnChanges {
     }
 
 
-
 }// ArticleListItemComponent
 

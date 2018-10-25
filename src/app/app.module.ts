@@ -16,9 +16,9 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 import {ArticlesReducer} from './ngrx/articles-reducer';
 import {AppReducer} from './ngrx/app-reducer';
-import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { MainLayoutComponent } from './main-layout/main-layout';
 import { CmpArticleSourcesListComponent } from './article-components/cmp-article-sources-list/cmp-article-sources-list';
-import { CmpArticleSourceListItemComponent } from './article-components/cmp-article-source-list-item/cmp-article-source-list-item';
+import { CmpArticleSourceListItemComponent } from './article-components/cmp-article-source-listitem/cmp-article-source-listitem';
 
 
 @NgModule({

@@ -1,10 +1,17 @@
 import {EventEmitter, Injectable} from '@angular/core';
 
 
-export const ARTICLE_EVENTS = {
+export const EVENTS_ARTICLE = {
+    GET_ALL: 'ARTICLES_GET_ALL',
+    GET_ALL_RESULT: 'ARTICLES_GET_ALL_RESULT',
     UPDATE: 'ARTICLE_EDIT',
     CREATE: 'ARTICLE_CREATE',
     REMOVE: 'ARTICLE_REMOVE',
+};
+
+export const EVENTS_SOURCE = {
+    GET_ALL: 'SOURCES_GET_ALL',
+    GET_ALL_RESULT: 'ASOURCES_GET_ALL_RESULT',
 };
 
 @Injectable({
